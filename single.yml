@@ -1,0 +1,24 @@
+##########################################################################
+# 部署配置文件(base)
+# 本配置文件(xx.yml)中的变量(${xxx})是从同级目录下的.env文件中读取的
+##########################################################################
+# compose支持的版本2
+version: "2"
+services:
+  # single
+  single:
+    image: ${IMAGE_SINGLE}
+    container_name: "single.${PRODUCT_NAME}.${COMPANY_NAME}"
+    hostname: "single.${PRODUCT_NAME}.${COMPANY_NAME}"
+    restart: "always"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./volume/single/conf/wrapper-property.conf:/data/app/conf/wrapper-property.conf:ro
+      - ./volume/single/conf/wrapper-additional.conf:/data/app/conf/wrapper-additional.conf:ro
+      - ./volume/single/data:/data/app/lib:ro
+      - ./volume/single/logs:/data/app/logs:rw
+      - ./volume/single/temp:/data/app/temp:rw
+    network_mode: "host"
+    # cap_add:
+    #   - NET_ADMIN
+    #   - SYS_ADMIN
