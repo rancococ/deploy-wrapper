@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##########################################################################
-# consul-helper.sh
+# compose-helper.sh
 # --setup   : 注册容器
 # --start   : 启动容器
 # --stop    : 停止容器
