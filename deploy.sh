@@ -169,7 +169,7 @@ fun_init_volume() {
         info "Init data volume start."
         for datadir in `find ${vol_dir} -type d -name data`; do
             info "Init volume : ${datadir}"
-            chmod 777 ${datadir};
+            chmod -R 777 ${datadir};
         done
         success "Init data volume end."
     fi
@@ -177,7 +177,7 @@ fun_init_volume() {
         info "Init logs volume start."
         for logsdir in `find ${vol_dir} -type d -name logs`; do
             info "Init volume : ${logsdir}"
-            chmod 777 ${logsdir};
+            chmod -R 777 ${logsdir};
         done
         success "Init logs volume end."
     fi
@@ -185,7 +185,7 @@ fun_init_volume() {
         info "Init temp volume start."
         for tempdir in `find ${vol_dir} -type d -name temp`; do
             info "Init volume : ${tempdir}"
-            chmod 777 ${tempdir};
+            chmod -R 777 ${tempdir};
         done
         success "Init temp volume end."
     fi
