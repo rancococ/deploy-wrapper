@@ -16,10 +16,13 @@ services:
       - ./volume/single/conf/wrapper-property.conf:/data/app/conf/wrapper-property.conf:ro
       - ./volume/single/conf/wrapper-additional.conf:/data/app/conf/wrapper-additional.conf:ro
       - ./volume/single/fonts:/usr/share/fonts/chinese:rw
+      - ./volume/single/libextend:/data/app/libextend:ro
       - ./volume/single/data:/data/app/lib:ro
       - ./volume/single/logs:/data/app/logs:rw
       - ./volume/single/temp:/data/app/temp:rw
     network_mode: "host"
+    extra_hosts:
+      - "single.${PRODUCT_NAME}.${COMPANY_NAME}:${HOST_IP}"
     # cap_add:
     #   - NET_ADMIN
     #   - SYS_ADMIN
