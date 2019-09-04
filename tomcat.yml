@@ -7,9 +7,9 @@ version: "2"
 services:
   # tomcat
   tomcat:
-    image: ${IMAGE_TOMCAT}
-    container_name: "tomcat.${PRODUCT_NAME}.${COMPANY_NAME}"
-    hostname: "tomcat.${PRODUCT_NAME}.${COMPANY_NAME}"
+    image: ${IMAGE_REPO}/${IMAGE_TOMCAT}
+    container_name: "tomcat-${SERVICE_NAME}.${PRODUCT_NAME}.${COMPANY_NAME}"
+    hostname: "tomcat-${SERVICE_NAME}.${PRODUCT_NAME}.${COMPANY_NAME}"
     restart: "always"
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -22,7 +22,7 @@ services:
       - ./volume/tomcat/temp:/data/app/temp:rw
     network_mode: "host"
     extra_hosts:
-      - "tomcat.${PRODUCT_NAME}.${COMPANY_NAME}:${HOST_IP}"
+      - "tomcat-${SERVICE_NAME}.${PRODUCT_NAME}.${COMPANY_NAME}:${HOST_IP}"
     # cap_add:
     #   - NET_ADMIN
     #   - SYS_ADMIN
